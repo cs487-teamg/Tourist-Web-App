@@ -1,0 +1,16 @@
+html {
+	height: 100%;
+}
+
+body {
+  padding-top: 50px;
+  height:100%;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+#map {
+	height: 500px;
+}
