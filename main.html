@@ -18,6 +18,9 @@
 
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]
@@ -58,77 +61,84 @@
       <div class="starter-template">
         <h1><strong>Tourist Attractions</strong> Near You</h1>
         <br>
-        <div id="map" class"col-lg-12"></div>
+        <div id="map"></div>
         <script>
             var map;
 
 function initMap() {
-  var pyrmont = {lat: -33.866, lng: 151.196};
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 17
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 12
   });
+  var infoWindow = new google.maps.InfoWindow({map: map});
 
-  var service = service = new google.maps.places
-          .PlacesService(document.getElementById('map')
-                         .appendChild(document.createElement('map')));
-  service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    types: ['store']
-  }, processResults);
-}
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
 
-function processResults(results, status, pagination) {
-  if (status !== google.maps.places.PlacesServiceStatus.OK) {
-    return;
-  } else {
-    createMarkers(results);
-
-    if (pagination.hasNextPage) {
-      var moreButton = document.getElementById('more');
-
-      moreButton.disabled = false;
-
-      moreButton.addEventListener('click', function() {
-        moreButton.disabled = true;
-        pagination.nextPage();
-      });
-    }
-  }
-}
-
-function createMarkers(places) {
-  var bounds = new google.maps.LatLngBounds();
-  var placesList = document.getElementById('places');
-
-  for (var i = 0, place; place = places[i]; i++) {
-    var image = {
-      url: place.icon,
-      size: new google.maps.Size(71, 71),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(17, 34),
-      scaledSize: new google.maps.Size(25, 25)
-    };
-
-    var marker = new google.maps.Marker({
-      map: map,
-      icon: image,
-      title: place.name,
-      position: place.geometry.location
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
     });
-
-    placesList.innerHTML += '<li>' + place.name + '</li>';
-
-    bounds.extend(place.geometry.location);
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
   }
-  map.fitBounds(bounds);
 }
-        </script>
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPBRxiKKAI6i2KaEHILpIh3K-F7eaCmy4&signed_in=true&callback=initMap"
         async defer>
     </script>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr><th>Location</th><th>Address</th><th>Tags</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Willis Tower</td>
+            <td>233 S Wacker Dr</td>
+            <td>Skyscraper</td>
+          </tr>
+           <tr>
+            <td>Willis Tower</td>
+            <td>233 S Wacker Dr</td>
+            <td>Skyscraper</td>
+          </tr>
+          <tr>
+            <td>Willis Tower</td>
+            <td>233 S Wacker Dr</td>
+            <td>Skyscraper</td>
+          </tr>
+          <tr>
+            <td>Willis Tower</td>
+            <td>233 S Wacker Dr</td>
+            <td>Skyscraper</td>
+          </tr>
+          <tr>
+            <td>Willis Tower</td>
+            <td>233 S Wacker Dr</td>
+            <td>Skyscraper</td>
+          </tr>
+        </tbody>  
+      </table>
+    </div>
+
     </div>
 
     </div><!-- /.container -->
