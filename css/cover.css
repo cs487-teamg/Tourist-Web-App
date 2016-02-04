@@ -125,7 +125,7 @@ hr.small {
 
 .services {
     padding: 50px 0;
-    background-color: #2B2D42;
+    background-color: #000;
 
 }
 
@@ -207,9 +207,9 @@ footer {
     opacity: 0.90;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
-    background-size: cover;
-}
+    background: url(pic.jpg) no-repeat;
+    background-color: #000;
+1}
 .container h1 {
     color: white;
 }
