@@ -125,7 +125,7 @@ hr.small {
 
 .services {
     padding: 50px 0;
-    background-color: #2B2D42;
+    background-color: #000;
 
 }
 
@@ -207,9 +207,18 @@ footer {
     opacity: 0.90;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
-    background-size: cover;
+    background-color: #000;
 }
+
+@media screen and (max-device-width: 800px) {
+    html {
+         background: url(img/pic.png) #000 no-repeat center center fixed;
+    }
+    #background {
+        display: none;
+    }
+}
+
 .container h1 {
     color: white;
 }
