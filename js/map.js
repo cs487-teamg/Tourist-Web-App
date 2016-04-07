@@ -6,7 +6,7 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
-    zoom: 14,
+    zoom: 16,
     scaleControl: false,
     streetViewControl: false,
     mapTypeControl: false
