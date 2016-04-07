@@ -16,6 +16,12 @@ html, body {
     border-radius: 0px;
 }
 
+ul,li{
+    list-style-type: none;
+    padding:0px;
+    margin: 0px;
+}
+
 .container-fluid{
     padding-left: 0px;
     padding-right: 0px;
