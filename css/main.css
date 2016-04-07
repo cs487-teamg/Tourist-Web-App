@@ -1,8 +1,10 @@
 body {
+    overflow: hidden; 
 }
 
+
 .bar-content{
-    color: black;
+    color: white;
 }
 
 .title{
@@ -70,7 +72,7 @@ body {
 
 .list-container{
     overflow-y: scroll;
-    max-height: 1030px;
+    max-height: 1000px;
 }
 
 
