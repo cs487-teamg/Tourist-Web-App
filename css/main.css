@@ -12,6 +12,10 @@ html, body {
     font-weight: 400;
 }
 
+.well{
+    border-radius: 0px;
+}
+
 .container-fluid{
     padding-left: 0px;
     padding-right: 0px;
@@ -19,6 +23,7 @@ html, body {
 
 .navbar{
     margin-bottom: 0px;
+    border-radius: 0px;
 }
 
 #map{
