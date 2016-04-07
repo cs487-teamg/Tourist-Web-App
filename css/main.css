@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
 	height: 100%;
 }
@@ -232,3 +233,65 @@ img { max-width: 100%; }
 }
 
 
+=======
+html, body {
+    
+}
+
+.bar-content{
+    text-align: center;
+    color: white;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.well{
+    border-radius: 0px;
+}
+
+ul,li{
+    list-style-type: none;
+    padding:0px;
+    margin: 0px;
+}
+
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar{
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+#map{
+    height: 1030px;
+}
+
+.map-view{
+    padding-left: 0px;
+}
+
+.list-view{
+    padding-right: 0px;
+}
+
+.list-item{
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.list-container{
+    overflow-y: scroll;
+    max-height: 1030px;
+}
+
+.search{
+    
+}
+
+>>>>>>> master
