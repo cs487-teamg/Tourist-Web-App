@@ -1,0 +1,49 @@
+html, body {
+    
+}
+
+.bar-content{
+    text-align: center;
+    color: white;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+#map{
+    height: 1030px;
+}
+
+.map-view{
+    padding-left: 0px;
+}
+
+.list-view{
+    padding-right: 0px;
+}
+
+.list-item{
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.list-container{
+    overflow-y: scroll;
+    max-height: 1030px;
+}
+
+.search{
+    
+}
+
