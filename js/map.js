@@ -16,21 +16,21 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pyrmont,
-    radius: 2000,
+    radius: 500,
     keyword:"tourist"
   }, callback);
 
   var service2 = new google.maps.places.PlacesService(map);
   service2.nearbySearch({
     location: pyrmont,
-    radius: 2000,
+    radius: 1000,
     keyword:"museum"
   }, callback2);
     
   var service3 = new google.maps.places.PlacesService(map);
   service2.nearbySearch({
     location: pyrmont,
-    radius: 500,
+    radius: 1000,
     keyword:"restaurant"
   }, callback3);
     
