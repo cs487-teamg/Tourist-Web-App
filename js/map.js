@@ -51,14 +51,14 @@ function initMap() {
               var service = new google.maps.places.PlacesService(map);
               service.nearbySearch({
                 location: pos,
-                radius: 3000,
+                radius: 1000,
                 keyword:"tourist"
               }, callback);
 
              var service4 = new google.maps.places.PlacesService(map);
               service.nearbySearch({
                 location: pos,
-                radius: 3000,
+                radius: 1000,
                 keyword:"sports stadium"
               }, callback);
             
@@ -72,10 +72,17 @@ function initMap() {
               var service3 = new google.maps.places.PlacesService(map);
               service2.nearbySearch({
                 location: pos,
-                radius: 1000,
+                radius: 900,
                 keyword:"restaurant"
               }, callback3);
-
+            
+            var service5 = new google.maps.places.PlacesService(map);
+              service2.nearbySearch({
+                location: pos,
+                radius: 800,
+                keyword:"shopping centers"
+              }, callback4);
+            
             map.setCenter(pos);
         },
 
@@ -117,12 +124,22 @@ function callback3(results, status) {
   }
 }
 
+function callback4(results, status) {
+  var placesList = document.getElementById('shopping');
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker4(results[i]);
+      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2></button>';
+    }
+  }
+}
+
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    icon: 'images/pins-dark/star-3.png'
+    icon: 'images/map-pins/star-3.png'
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -137,7 +154,7 @@ function createMarker2(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    icon: 'images/pins-dark/temple-2.png'
+    icon: 'images/map-pins/temple-2.png'
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -151,7 +168,21 @@ function createMarker3(place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-    icon: 'images/pins-dark/restaurant.png'
+    icon: 'images/map-pins/restaurant.png'
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
+
+function createMarker4(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location,
+    icon: 'images/map-pins/mall.png'
   });
 
   google.maps.event.addListener(marker, 'click', function() {

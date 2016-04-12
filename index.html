@@ -36,7 +36,7 @@
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   </head>
 
@@ -58,6 +58,8 @@
                     <li onclick="filter(this.id)" id="0"><a href="#"><i class="fa fa-star"></i>&nbsp;Points of Interest</a></li>
                     <li><a href="#"><i class="fa fa-university"></i>&nbsp;Museums</a></li>
                     <li><a href="#"><i class="fa fa-cutlery"></i>&nbsp;Restaurants</a></li>
+                    
+                    <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp;Shopping</a></li>
                   </ul>
                 </div>
            </div>
@@ -93,6 +95,10 @@
                 
                 <div id="restaurant">
                     <h2 class="list-group-item list-group-item-warning list-header-title list-header-title"><i class="fa fa-cutlery"></i>&nbsp;&nbsp;Restaurants</h2>
+                 </div>
+                   
+                <div id="shopping">
+                    <h2 class="list-group-item list-group-item-danger list-header-title list-header-title"><i class="fa fa-shopping-bag"></i>&nbsp;Shopping</h2>
                 </div>
             </div>
         </div>
@@ -120,10 +126,6 @@
                 rest_list.style.display = none;   
                 museum_list.style.display = none;
             }
-          }
-        
-          function getLocation (){
-            document.getElementById('map').style.visibility = 'hidden';         
           }
       </script>
     <!-- Bootstrap core JavaScript
