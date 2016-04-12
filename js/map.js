@@ -2,38 +2,60 @@ var map;
 var infowindow;
 
 function initMap() {
-  var pyrmont = {lat: 41.8781, lng: -87.6298};
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 16,
-    scaleControl: false,
-    streetViewControl: false,
-    mapTypeControl: false
-  });
-
-  infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    keyword:"tourist"
-  }, callback);
-
-  var service2 = new google.maps.places.PlacesService(map);
-  service2.nearbySearch({
-    location: pyrmont,
-    radius: 1000,
-    keyword:"museum"
-  }, callback2);
     
-  var service3 = new google.maps.places.PlacesService(map);
-  service2.nearbySearch({
-    location: pyrmont,
-    radius: 1000,
-    keyword:"restaurant"
-  }, callback3);
-    
+    var mapOptions = {
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+    };
+
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    //HTML5 geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: pos,
+                content: 'You Are Here'
+            });
+            
+            infowindow = new google.maps.InfoWindow();
+              var service = new google.maps.places.PlacesService(map);
+              service.nearbySearch({
+                location: pos,
+                radius: 5000,
+                keyword:"tourist"
+              }, callback);
+
+              var service2 = new google.maps.places.PlacesService(map);
+              service2.nearbySearch({
+                location: pos,
+                radius: 2000,
+                keyword:"museum"
+              }, callback2);
+
+              var service3 = new google.maps.places.PlacesService(map);
+              service2.nearbySearch({
+                location: pos,
+                radius: 1000,
+                keyword:"restaurant"
+              }, callback3);
+
+            map.setCenter(pos);
+        },
+
+        function () {
+            handleNoGeolocation(true);
+        });
+    } else {
+        handleNoGeolocation(false);
+    }
 }
 
 function callback(results, status) {
@@ -106,4 +128,10 @@ function createMarker3(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+function getLocation() {
+    initMap();
 }

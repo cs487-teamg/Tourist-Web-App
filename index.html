@@ -48,6 +48,7 @@
            
           <div class="col-sm-3">
                 <div class="dropdown">
+                 
                   <button class="btn btn-default dropdown-toggle" type="button" id="filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Filter
                     <span class="caret"></span>
@@ -70,7 +71,7 @@
            
            <div class="col-sm-3">
               <div class="location-arrow">
-                    <i class="fa fa-location-arrow fa-2x"></i>
+                    <button class="btn btn-default btn-sm" onclick="getLocation()"><i class="fa fa-location-arrow fa-2x"></i></button>
               </div>
            </div>
         </div>
@@ -120,7 +121,10 @@
                 museum_list.style.display = none;
             }
           }
-      
+        
+          function getLocation (){
+            document.getElementById('map').style.visibility = 'hidden';         
+          }
       </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
