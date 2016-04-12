@@ -54,12 +54,16 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="filter">
-                     <li class="dropdown-header">Types of locations</li>
-                    <li onclick="filter(this.id)" id="0"><a href="#"><i class="fa fa-star"></i>&nbsp;Points of Interest</a></li>
-                    <li><a href="#"><i class="fa fa-university"></i>&nbsp;Museums</a></li>
-                    <li><a href="#"><i class="fa fa-cutlery"></i>&nbsp;Restaurants</a></li>
+                    <li class="dropdown-header">Types of locations</li>
                     
-                    <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp;Shopping</a></li>
+                    <li id="0"><a href="#poi"><i class="fa fa-star"></i>&nbsp;Points of Interest</a></li>
+                    
+                    <li><a href="#museum"><i class="fa fa-university"></i>&nbsp;Museums</a></li>
+                    
+                    <li><a href="#restaurant"><i class="fa fa-cutlery"></i>&nbsp;Restaurants</a></li>
+                    
+                    <li><a href="#shopping"><i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp;Shopping</a></li>
+                  
                   </ul>
                 </div>
            </div>
@@ -116,18 +120,6 @@
         </div>
       </div>
       </div>
-      
-      <script>
-          function filter(filter_id) {
-            var museum_list = document.getElementById('museum');
-            var rest_list = document.getElementById('restaurant');
-            var poi_list = document.getElementById('poi');
-            if filter_id == 0{
-                rest_list.style.display = none;   
-                museum_list.style.display = none;
-            }
-          }
-      </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

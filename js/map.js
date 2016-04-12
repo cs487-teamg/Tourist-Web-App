@@ -196,3 +196,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function getLocation() {
     initMap();
 }
+
+$('#dropdown').on('click', 'li a', function(e) {
+    alert($(this).text());                
+});
