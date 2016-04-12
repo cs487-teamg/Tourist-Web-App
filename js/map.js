@@ -51,10 +51,17 @@ function initMap() {
               var service = new google.maps.places.PlacesService(map);
               service.nearbySearch({
                 location: pos,
-                radius: 5000,
+                radius: 3000,
                 keyword:"tourist"
               }, callback);
 
+             var service4 = new google.maps.places.PlacesService(map);
+              service.nearbySearch({
+                location: pos,
+                radius: 3000,
+                keyword:"sports stadium"
+              }, callback);
+            
               var service2 = new google.maps.places.PlacesService(map);
               service2.nearbySearch({
                 location: pos,
