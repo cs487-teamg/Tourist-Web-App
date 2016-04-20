@@ -4,16 +4,16 @@ var infowindow;
 function initMap() {
     
     var mapOptions = {
-        zoom: 15,
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 1,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
         panControl: false,
         streetViewControl: false,
-        mapTypeControl: false,
+        mapTypeControl: false
     };
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
     //HTML5 geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -22,7 +22,7 @@ function initMap() {
                 map: map,
                 position: pos,
                 content: 'You Are Here'
-            });       
+            });   
             
             /*var circle = new google.maps.Circle({
               center: pos,
@@ -38,7 +38,7 @@ function initMap() {
                 url: 'images/current.png', // url
                 scaledSize: new google.maps.Size(25, 25), // scaled size
                 origin: new google.maps.Point(0,0), // origin
-                anchor: new google.maps.Point(0, 0) // anchor
+                anchor: new google.maps.Point(0,0) // anchor
             };
             
             marker = new google.maps.Marker({
@@ -84,14 +84,15 @@ function initMap() {
               }, callback4);
             
             map.setCenter(pos);
-        },
-
-        function () {
-            handleNoGeolocation(true);
+            map.setZoom(15);
         });
-    } else {
-        handleNoGeolocation(false);
-    }
+  } else {
+      infowindow = new google.maps.InfoWindow({
+          map: map,
+          position: map.getCenter(),
+          content:'Error: The Geolocation service failed.'
+      });
+  }
 }
 
 function callback(results, status) {
@@ -191,12 +192,15 @@ function createMarker4(place) {
   });
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+
+
+function handleLocationError(browserHasGeolocation) {
+  infowindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
 
 function getLocation() {
     initMap();
 }
-
-$('#dropdown').on('click', 'li a', function(e) {
-    alert($(this).text());                
-});
