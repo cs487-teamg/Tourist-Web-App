@@ -46,7 +46,7 @@
       <div class="container-fluid">
         <div class="bar-content">
            
-          <div class="col-sm-3">
+          <div class="col-sm-3 hidden-xs">
                 <div class="dropdown">
                  
                   <button class="btn btn-default dropdown-toggle" type="button" id="filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -75,7 +75,7 @@
            
        
            
-           <div class="col-sm-3">
+           <div class="col-sm-3 hidden-xs">
               <div class="location-arrow">
                     <button class="btn btn-default btn-sm" onclick="getLocation()"><i class="fa fa-location-arrow fa-2x"></i></button>
               </div>
@@ -87,7 +87,7 @@
     
     <div class="container-fluid">
        <div class="row">
-        <div class="col-sm-3 list-view">
+        <div class="col-sm-3 list-view hidden-xs">
         <div class="well well-sm">
              <div id="places" class="list-container">
                 <div id="poi">
@@ -111,7 +111,7 @@
         <div class="col-sm-9 map-view">
             <div class="well well-sm">
                 <div id="map">
-                    
+                    <div id="error"></div>
                 </div>
             </div>
             <script src="js/map.js"></script>
