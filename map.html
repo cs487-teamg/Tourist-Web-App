@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+    <title>Tourist App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse fixed-top">
+      <div class="container-fluid">
+        <div class="bar-content">
+           
+          <div class="col-sm-3 hidden-xs">
+                <div class="dropdown">
+                 
+                  <button class="btn btn-default dropdown-toggle" type="button" id="filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Filter
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="filter">
+                    <li class="dropdown-header">Types of locations</li>
+                    
+                    <li id="0"><a href="#poi"><i class="fa fa-star"></i>&nbsp;Points of Interest</a></li>
+                    
+                    <li><a href="#museum"><i class="fa fa-university"></i>&nbsp;Museums</a></li>
+                    
+                    <li><a href="#restaurant"><i class="fa fa-cutlery"></i>&nbsp;Restaurants</a></li>
+                    
+                    <li><a href="#shopping"><i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp;Shopping</a></li>
+                  
+                  </ul>
+                </div>
+           </div>
+           
+           
+           <div class="col-sm-6">
+               <h2 class="title">Nearby Tourist Locations</h2>
+           </div>
+           
+       
+           
+           <div class="col-sm-3 hidden-xs">
+              <div class="location-arrow">
+                    <button class="btn btn-default btn-sm" onclick="getLocation()"><i class="fa fa-location-arrow fa-2x"></i></button>
+              </div>
+           </div>
+        </div>
+        
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+       <div class="row">
+        <div class="col-sm-3 list-view hidden-xs">
+        <div class="well well-sm">
+             <div id="places" class="list-container">
+                <div id="poi">
+                    <h2 class="list-group-item list-group-item-success list-header-title"><i class="fa fa-star"></i>&nbsp;&nbsp;Points of Interest</h2>
+                </div>
+                <div id="museum">
+                    <h2 class="list-group-item list-group-item-info list-header-title list-header-title"><i class="fa fa-university"></i>&nbsp;&nbsp;Museums</h2>
+                </div>
+                
+                <div id="restaurant">
+                    <h2 class="list-group-item list-group-item-warning list-header-title list-header-title"><i class="fa fa-cutlery"></i>&nbsp;&nbsp;Restaurants</h2>
+                 </div>
+                   
+                <div id="shopping">
+                    <h2 class="list-group-item list-group-item-danger list-header-title list-header-title"><i class="fa fa-shopping-bag"></i>&nbsp;Shopping</h2>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="col-sm-9 map-view">
+            <div class="well well-sm">
+                <div id="map">
+                    <div id="error"></div>
+                </div>
+            </div>
+            <script src="js/map.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqy-kqxYeDO2zh75rYawjz2bTxLeeRfRE&libraries=places&callback=initMap" async defer></script>
+            
+        </div>
+      </div>
+      </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
