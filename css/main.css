@@ -17,6 +17,17 @@ html{
     text-align: center;
 }
 
+.btn-left{
+    margin-top: 15px;
+}
+
+.home-btn{
+    font-size: 20px;
+    height:40px;
+    text-align: center;
+    margin-right:10px;
+}
+
 .well{
     border-radius: 0px;
 }
