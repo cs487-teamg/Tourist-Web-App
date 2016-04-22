@@ -22,11 +22,12 @@ html{
 }
 
 .home-btn{
-    font-size: 20px;
-    height:40px;
+    font-size: 13px;
     text-align: center;
-    margin-right:10px;
+    margin-right: 25px;
+    margin-left: 10px;
 }
+
 
 .well{
     border-radius: 0px;
