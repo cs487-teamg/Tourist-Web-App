@@ -1,2 +1,5 @@
 # ignore OSX folder stuff
 .DS_store
+
+# ignore vim swap files
+*.swp
