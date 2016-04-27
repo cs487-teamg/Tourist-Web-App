@@ -1,6 +1,8 @@
 var map;
 var infowindow;
 
+
+
 function initMap() {
     
     var mapOptions = {
@@ -80,18 +82,14 @@ function initMap() {
               service2.nearbySearch({
                 location: pos,
                 radius: 800,
-                keyword:"shopping centers"
+                keyword:"mall"
               }, callback4);
             
             map.setCenter(pos);
             map.setZoom(15);
         });
   } else {
-      infowindow = new google.maps.InfoWindow({
-          map: map,
-          position: map.getCenter(),
-          content:'Error: The Geolocation service failed.'
-      });
+      alert("Location service not enabled.");
   }
 }
 
@@ -100,7 +98,7 @@ function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2></button>';
+      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
     }
   }
 }
@@ -110,27 +108,30 @@ function callback2(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker2(results[i]);
-      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2></button>';
+      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
     }
   }
 }
 
 function callback3(results, status) {
   var placesList = document.getElementById('restaurant');
+  var temp  = new google.maps.places.PlacesService(map);
+  var address = 'temp';
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker3(results[i]);
-      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2></button>';
+      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
     }
   }
 }
+
 
 function callback4(results, status) {
   var placesList = document.getElementById('shopping');
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker4(results[i]);
-      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2></button>';
+      placesList.innerHTML += '<button class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
     }
   }
 }
@@ -144,7 +145,7 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent('<div style="font-size: 16px;text-align:center"><strong>' + place.name + '</strong><br>'+ place.vicinity + '<br> Rating: ' + place.rating + '/5 </div>');    
     infowindow.open(map, this);
     
   });
@@ -159,7 +160,7 @@ function createMarker2(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent('<div style="font-size: 16px;text-align:center"><strong>' + place.name + '</strong><br>' + place.vicinity + '<br>' + place.rating + '/5 </div>');    
     infowindow.open(map, this);
   });
 }
@@ -173,12 +174,12 @@ function createMarker3(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent('<div style="font-size: 16px;text-align:center"><strong>' + place.name + '</strong><br>' + place.vicinity + '<br>' + place.rating + '/5 </div>');    
     infowindow.open(map, this);
   });
 }
 
-function createMarker4(place) {
+function createMarker4(place) { 
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
@@ -187,13 +188,13 @@ function createMarker4(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent('<div style="font-size: 16px;text-align:center"><strong>' + place.name + '</strong><br>' + place.vicinity + '<br>' + place.rating + '/5 </div>');    
     infowindow.open(map, this);
   });
 }
 
 
-
+                    
 function handleLocationError(browserHasGeolocation) {
   infowindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
