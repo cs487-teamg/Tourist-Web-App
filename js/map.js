@@ -125,10 +125,10 @@ function callback(results, status) {
         var temp = results[i].id;
         createMarker(results[i]);
         if (String(results[i].rating) == "undefined"){
-             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating </button>';
+             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating <a class="btn btn-sm btn-default add-to-sch"> Add to schedule </a></button>';
         }
         else{
-            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
+            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 <a class="btn btn-sm btn-default add-to-sch"> Add to schedule </a></button>';
         }
     }
   }
@@ -143,10 +143,10 @@ function callback2(results, status) {
         var temp = results[i].id;
         createMarker2(results[i]);
         if (String(results[i].rating) == "undefined"){
-             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating </button>';
+             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating <a class="btn btn-sm btn-default add-to-sch"> Add to schedule </a></button>';
         }
         else{
-            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
+           placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 <a class="btn btn-sm btn-default add-to-sch"> Add to schedule</a></button>';
         }
     }
   }
@@ -161,10 +161,10 @@ function callback3(results, status) {
        var temp = results[i].id;
         createMarker3(results[i]);
         if (String(results[i].rating) == "undefined"){
-             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating </button>';
+             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating <a class="btn btn-sm btn-default add-to-sch"> Add to schedule </a></button>';
         }
         else{
-            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
+            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 <a class="btn btn-sm btn-default add-to-sch"> Add to schedule</a></button>';
         }
     }
   }
@@ -180,10 +180,10 @@ function callback4(results, status) {
        var temp = results[i].id;
         createMarker4(results[i]);
         if (String(results[i].rating) == "undefined"){
-             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating </button>';
+             placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> No Rating <a class="btn btn-sm btn-default add-to-sch"> Add to schedule </a></button>';
         }
         else{
-            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 </button>';
+            placesList.innerHTML += '<button id="' + temp + '" onclick="showpin(this.id)" class="list-group-item"><h2 class="list-item">' + results[i].name + '</h2> Rating: ' + results[i].rating + '/5 <a class="btn btn-sm btn-default add-to-sch"> Add to schedule</a></button>';
         }
     }
   }

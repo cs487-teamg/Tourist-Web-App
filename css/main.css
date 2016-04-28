@@ -88,6 +88,12 @@ html{
     width: 390px;
 }
 
+.add-to-sch{
+    text-align: center;
+    float: right;
+    color: green;
+}
+
 .list-view{
     padding: 0 0 0 15px;
 }
