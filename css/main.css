@@ -78,6 +78,16 @@ html{
     padding-left: 0px;
 }
 
+#right-panel{
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+    float:right;
+    height: 100%;
+    overflow: auto;
+    width: 390px;
+}
+
 .list-view{
     padding: 0 0 0 15px;
 }
@@ -88,7 +98,7 @@ html{
 }
 
 .list-container{
-    overflow-y: scroll;
+    overflow: auto;
     max-height: 1010px;
 }
 
