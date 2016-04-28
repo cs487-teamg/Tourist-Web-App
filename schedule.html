@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link href="css/main.css" rel="stylesheet">
+
+<link href='fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='fullcalendar/lib/moment.min.js'></script>
+<script src='fullcalendar/lib/jquery.min.js'></script>
+<script src='fullcalendar/lib/jquery-ui.custom.min.js'></script>
+<script src='fullcalendar/fullcalendar.min.js'></script>
+<script>
+
+	$(document).ready(function() {
+
+
+		/* initialize the external events
+		-----------------------------------------------------------------*/
+
+		$('#external-events .fc-event').each(function() {
+
+			// store data so the calendar knows to render an event upon drop
+			$(this).data('event', {
+				title: $.trim($(this).text()), // use the element's text as the event title
+				stick: true // maintain when user navigates (see docs on the renderEvent method)
+			});
+
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
+
+		});
+
+
+		/* initialize the calendar
+		-----------------------------------------------------------------*/
+
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar
+			drop: function() {
+				// is the "remove after drop" checkbox checked?
+				if ($('#drop-remove').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+			}
+		});
+
+
+	});
+
+</script>
+<style>
+
+	body {
+		text-align: center;
+	}
+		
+	#wrap {
+        margin-top: 50px;
+	}
+		
+	#external-events {
+		
+	}
+		
+	#external-events h4 {
+		font-size: 25px;
+		margin-top: 0;
+		padding-top: 1em;
+	}
+		
+	#external-events .fc-event {
+        font-family: 'Roboto','sans-serif';
+		margin: 40px 0;
+		cursor: pointer;
+        height: 50px;
+        text-align: center;
+        font-size: 16px;
+	}
+		
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 16px;
+		color: #666;
+	}
+		
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	#calendar {
+		
+	}
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse fixed-top">
+      <div class="container-fluid">
+        <div class="bar-content">
+          <div class="col-sm-3 hidden-xs">
+               <div class="btn-left">
+                   <a href="./index.html" class="btn btn-default btn-sm home-btn"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+           </div>
+        </div>  
+           
+           
+           <div class="col-sm-6">
+               <h2 class="title">Schedule</h2>
+           </div>
+           
+           <div class="col-sm-3 hidden-xs">
+             <div class="location-arrow">
+                    <button class="btn btn-default btn-sm" onclick="window.print()"><i class="fa fa-print fa-2x"></i></button>
+              </div>
+           </div>
+        </div>
+        
+      </div>
+    </nav>
+
+<div class="container-fluid">
+<div class="row">
+	<div id='wrap'>
+        <div class="col-sm-3 list-view">
+		<div id='external-events'>
+			<h4>Chosen Tourist Attractions</h4>
+			
+			<div class='fc-event'>Willis Tower Sky Deck</div>
+			<div class='fc-event'>Buckingham Fountain</div>
+			<div class='fc-event'>Field Museum</div>
+			<div class='fc-event'>Giordano's Pizzeria</div>
+			<p>
+				<input type='checkbox' id='drop-remove' />
+				<label for='drop-remove'>remove after drop</label>
+			</p>
+		</div>
+        </div>
+
+		<div class="col-sm-8" id='calendar'></div>
+
+		<div style='clear:both'></div>
+
+	</div>
+    </div>
+    </div>
+</body>
+</html>
